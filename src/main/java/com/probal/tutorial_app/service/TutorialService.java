@@ -1,6 +1,7 @@
 package com.probal.tutorial_app.service;
 
 
+import com.probal.tutorial_app.dto.TutorialDto;
 import com.probal.tutorial_app.exception.ResourceNotFoundException;
 import com.probal.tutorial_app.model.Tutorial;
 import com.probal.tutorial_app.repository.TutorialRepository;
@@ -19,7 +20,11 @@ public class TutorialService {
         return tutorialRepository.findAll();
     }
 
-    public Tutorial createTutorial(Tutorial tutorial) {
+    public Tutorial createTutorial(TutorialDto tutorialDto) {
+        Tutorial tutorial = new Tutorial();
+        tutorial.setTitle(tutorialDto.getTitle());
+        tutorial.setDescription(tutorialDto.getDescription());
+        tutorial.setPublished(true);
         return tutorialRepository.save(tutorial);
     }
 

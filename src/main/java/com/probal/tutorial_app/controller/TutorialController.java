@@ -1,6 +1,7 @@
 package com.probal.tutorial_app.controller;
 
 
+import com.probal.tutorial_app.dto.TutorialDto;
 import com.probal.tutorial_app.exception.ResourceNotFoundException;
 import com.probal.tutorial_app.model.Tutorial;
 import com.probal.tutorial_app.service.TutorialService;
@@ -27,7 +28,7 @@ public class TutorialController {
 
 
     @PostMapping("/tutorials")
-    public Tutorial createTutorial(@RequestBody Tutorial tutorial) {
+    public Tutorial createTutorial(@RequestBody TutorialDto tutorial) {
         return tutorialService.createTutorial(tutorial);
     }
 
