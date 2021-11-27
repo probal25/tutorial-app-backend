@@ -28,8 +28,12 @@ public class TutorialController {
 
 
     @PostMapping("/tutorials")
-    public Tutorial createTutorial(@RequestBody TutorialDto tutorial) {
-        return tutorialService.createTutorial(tutorial);
+    public ResponseEntity<Map<String, Object>> createTutorial(@RequestBody TutorialDto tutorial) {
+        Tutorial tutorialObj = tutorialService.createTutorial(tutorial);
+        Map<String, Object> response = new HashMap<>();
+        response.put("Tutorial obj" , tutorialObj);
+        response.put("Saved" , "YES");
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/tutorials/{id}")
